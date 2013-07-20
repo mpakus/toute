@@ -1,0 +1,21 @@
+ru:
+  app:
+    title: 'Все продай - купи курай!'
+
+#    human_date
+  date:
+    formats:
+      today: "Today"
+      tomorrow: "Tomorrow"
+      yesterday: "Yesterday"
+      current_year: "%h %e"
+      other_year: "%h %e, %Y"
+
+  time:
+    formats:
+      today: "%l:%M %p"
+      tomorrow: "Tomorrow"
+      yesterday: "Yesterday"
+      current_year: "%h %e"
+      other_year: "%h %e, %Y"
+

@@ -43,3 +43,24 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'rmagick'
+gem 'carrierwave'
+gem 'searchlight'
+gem 'kaminari'
+gem 'russian'
+gem 'human_date'
+
+# Use unicorn as the app server
+group :production do
+  gem 'unicorn'
+end
+
+group :development do
+  # Deploy with Capistrano
+  gem 'capistrano'
+  gem 'rvm-capistrano'
+  gem 'better_errors'
+  gem 'meta_request'
+  gem 'sextant'
+end
