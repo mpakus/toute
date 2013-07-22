@@ -7,11 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<head>
-  <script src="http://ulogin.ru/js/ulogin.js" type="text/javascript" async="async"></script>
-  <div id="uLogin" data-ulogin="display=panel;fields=email,first_name,phone,photo,photo_big,city;providers=vkontakte,facebook,livejournal,odnoklassniki,twitter,google,yandex;hidden=other;redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fsessions%2F"></div>
-</head>
+<header>
+  <%= user_controls() %>
+</header>
 
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <a class="close" data-dismiss="alert">&#215;</a>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    </div>
+  <% end %>
+<% end %>
 
 <%= yield %>
 

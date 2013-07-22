@@ -51,16 +51,15 @@ gem 'kaminari'
 gem 'russian'
 gem 'human_date'
 
-# Use unicorn as the app server
 group :production do
   gem 'unicorn'
 end
 
 group :development do
-  # Deploy with Capistrano
   gem 'capistrano'
   gem 'rvm-capistrano'
   gem 'better_errors'
   gem 'meta_request'
   gem 'sextant'
+  #gem 'binding_of_caller'
 end
