@@ -27,6 +27,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Flatui
+gem 'flatui-rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -61,5 +64,6 @@ group :development do
   gem 'better_errors'
   gem 'meta_request'
   gem 'sextant'
-  #gem 'binding_of_caller'
+  gem 'binding_of_caller'
+  gem 'quiet_assets'
 end

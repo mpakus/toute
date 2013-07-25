@@ -1,0 +1,27 @@
+<h1><%= t('cities.admin.list') %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('cities.admin.alias') %></th>
+      <th><%= t('cities.admin.name') %></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cities.each do |city| %>
+      <tr>
+        <td><%= city.alias %></td>
+        <td><%= city.name %></td>
+        <td><%= link_to t('buttons.edit'), edit_admin_city_path(city) %></td>
+        <td><%= link_to t('buttons.destroy'), [:admin, city], method: :delete, data: { confirm: t('msg.are_u_sure') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('buttons.add'), new_admin_city_path %>

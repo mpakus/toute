@@ -1,9 +1,14 @@
 Toute::Application.routes.draw do
+
+  ### frontend
   root 'dashboards#index'
-
-  #get "dashboards/static"
-
   resources :sessions, :only => [:create, :destroy]
+
+  ### backend
+  namespace :admin do
+    resources :cities
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

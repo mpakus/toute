@@ -1,0 +1,15 @@
+<%= form_for([:admin, @city]) do |f| %>
+  <%= form_errors @city %>
+
+  <div class="field">
+    <%= f.label :alias %>
+    <%= f.text_field :alias %>
+  </div>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit t('buttons.save'), class: 'btn btn-primary' %>
+  </div>
+<% end %>

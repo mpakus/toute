@@ -1,0 +1,6 @@
+ru:
+  cities:
+    admin:
+      list: 'Список городов'
+      alias: 'URI альас'
+      name: 'Название'

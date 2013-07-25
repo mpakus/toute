@@ -7,20 +7,73 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-  <%= user_controls() %>
-</header>
 
-<% flash.each do |name, msg| %>
-  <% if msg.is_a?(String) %>
-    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-      <a class="close" data-dismiss="alert">&#215;</a>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<div class="container">
+  <div class="row demo-row">
+
+    <div class="span9">
+      <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-01"></button>
+            <div class="nav-collapse collapse" id="nav-collapse-01">
+              <ul class="nav">
+                <li>
+                  <a href="#fakelink">Куплю</a>
+                </li>
+                <li>
+                  <a href="#fakelink">Продам</a>
+                </li>
+                <li>
+                  <a href="#fakelink">Обмен</a>
+                </li>
+                <li>
+                  <a href="#fakelink">О сайте</a>
+                </li>
+              </ul>
+              <ul class="nav pull-right">
+                <li>
+                  <a href="">Выбрать город</a>
+                  <ul>
+                    <li><a href="">Уфа</a></li>
+                    <li><a href="">Казань</a></li>
+                    <li><a href="">Челны</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div><!-- navbar -->
     </div>
-  <% end %>
-<% end %>
 
-<%= yield %>
+    <div class="span3">
+      <div class="navbar navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-02"></button>
+            <div class="nav-collapse collapse" id="nav-collapse-02">
+              <%= user_controls() %>
+            </div>
+          </div>
+        </div>
+      </div><!-- navbar -->
+    </div>
+
+  </div>
+
+  <% flash.each do |name, msg| %>
+    <% if msg.is_a?(String) %>
+      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+        <a class="close" data-dismiss="alert">&#215;</a>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= yield %>
+
+</div>
 
 </body>
 </html>
