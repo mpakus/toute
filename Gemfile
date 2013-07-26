@@ -27,11 +27,14 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-# Bootstrap
+# Bootstrap - html + css + js responsive gui
 gem 'bootstrap-sass'
 
-# Flatui
+# Flatui - free theme over twitter Bootstrap
 gem 'flatui-rails'
+
+# Kaminari - easy pagination gem
+gem 'kaminari'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

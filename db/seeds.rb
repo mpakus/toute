@@ -14,4 +14,9 @@ Operation.destroy_all
 operations = Operation.create([{ alias:'buy', name:'Куплю' }, { alias:'sale', name:'Продам' }, { alias:'exchange', name:'Обмен' }])
 
 Category.destroy_all
-#categories = Category.create([{ alias:'buy', name:'Куплю' }, { alias:'sale', name:'Продам' }, { alias:'exchange', name:'Обмен' }])
+categories = Category.create([
+  { alias:'guitar', name:'Гитары и гитарное оборудование' },
+  { alias:'processors', name:'Ударные инструменты и аксессуары' },
+  { alias:'keyboards', name:'Звукозапись и воспроизведение' },
+  { alias:'drums', name:'Прочее, всевозможные аксессуары' }
+])

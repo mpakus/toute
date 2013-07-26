@@ -28,7 +28,7 @@ module ApplicationHelper
       html = "
         <div class=\"alert alert-error\">
           <a class=\"close\" data-dismiss=\"alert\">&#215;</a>
-          <div>#{form.errors.count} #{plural} в форме:</div>
+          <div>У вас #{form.errors.count} #{plural}:</div>
           <ul>"
       form.errors.each do |field, msg|
         html += (show_field) ? "<li>#{field} #{msg}</li>" : "<li>#{msg}</li>"

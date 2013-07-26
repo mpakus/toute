@@ -1,0 +1,21 @@
+<h1><%= t('touts.list') %></h1>
+
+<div class="add_tout">
+  <%= link_to t('touts.add'), new_tout_path, class: 'btn btn-primary' %>
+</div>
+<% @touts.each do |tout| %>
+  <div class="tout">
+    <%= link_to tout do %>
+      <h3><%= tout.name %></h3>
+      <p><%= tout.content %></p>
+    <% end %>
+    <div class="subs">
+      <%= tout.operation.name %> / <%= tout.category.name %> <%= t('touts.in_city') %> <%= tout.city %>
+      <span class="author"><%= tout.user.first_name %></span>
+    </div>
+  </div>
+    <%= link_to 'Edit', edit_tout_path(tout) %>
+    <%= link_to 'Destroy', tout, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </tr>
+<% end %>
+

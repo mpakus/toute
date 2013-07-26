@@ -1,0 +1,20 @@
+<%= form_for(@tout) do |f| %>
+  <%= form_errors @tout, false %>
+  <% # todo: change to default values from URI /:city/:operation/:category %>
+  <div class="field">
+    <%= f.collection_select :operation, Operation.all, :id, :name, {}, class: 'input-large' %>
+    <%= f.collection_select :category, Category.all, :id, :name, {}, style: 'width: 600px' %>
+    <%= f.collection_select :city, City.all, :id, :name, {}, class: 'input-large' %>
+  </div>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'input-xxlarge' %>
+  </div>
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'input-xxlarge', style: 'height: 300px' %>
+  </div>
+  <div class="actions">
+    <%= f.submit t('scaffold.add'), class: 'btn btn-primary' %>
+  </div>
+<% end %>

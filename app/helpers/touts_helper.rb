@@ -1,0 +1,2 @@
+module ToutsHelper
+end

@@ -19,15 +19,9 @@
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-01"></button>
             <div class="nav-collapse collapse" id="nav-collapse-01">
               <ul class="nav">
-                <li>
-                  <a href="#fakelink">Куплю</a>
-                </li>
-                <li>
-                  <a href="#fakelink">Продам</a>
-                </li>
-                <li>
-                  <a href="#fakelink">Обмен</a>
-                </li>
+                <% Operation.find_each do |oper|  %>
+                  <li><%= link_to oper.name, touts_path(operation:oper.alias) %></li>
+                <% end %>
                 <li>
                   <a href="#fakelink">О сайте</a>
                 </li>

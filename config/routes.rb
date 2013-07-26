@@ -1,6 +1,17 @@
 Toute::Application.routes.draw do
 
 
+  # frontend
+  resources :touts
+  #scope '(:operation)' do
+  #  scope '(:category)' do
+  #    scope '(:city)' do
+  #      resources :touts
+  #    end
+  #  end
+  #end
+
+
   ### frontend
   root 'dashboards#index'
   resources :sessions, :only => [:create, :destroy]
