@@ -2,5 +2,5 @@ ru:
   cities:
     admin:
       list: 'Список городов'
-      alias: 'URI альас'
+      alias: 'Alias'
       name: 'Название'

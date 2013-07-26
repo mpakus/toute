@@ -1,22 +1,22 @@
 <h1><%= t('cities.admin.list') %></h1>
 
-<table>
+<table class="table table-hovered table-striped">
   <thead>
     <tr>
-      <th><%= t('cities.admin.alias') %></th>
       <th><%= t('cities.admin.name') %></th>
-      <th></th>
-      <th></th>
+      <th><%= t('cities.admin.alias') %></th>
+      <th class="col-edit"></th>
+      <th class="col-delete"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @cities.each do |city| %>
       <tr>
-        <td><%= city.alias %></td>
         <td><%= city.name %></td>
-        <td><%= link_to t('buttons.edit'), edit_admin_city_path(city) %></td>
-        <td><%= link_to t('buttons.destroy'), [:admin, city], method: :delete, data: { confirm: t('msg.are_u_sure') } %></td>
+        <td><%= city.alias %></td>
+        <td><%= link_to t('buttons.edit'), edit_admin_city_path(city), class: 'btn btn-inverse' %></td>
+        <td><%= link_to t('buttons.destroy'), [:admin, city], method: :delete, data: { confirm: t('msg.are_u_sure') }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to t('buttons.add'), new_admin_city_path %>
+<%= link_to t('buttons.add'), new_admin_city_path, class: 'btn btn-primary' %>
