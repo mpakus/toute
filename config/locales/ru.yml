@@ -2,10 +2,6 @@ ru:
   app:
     title: 'Все продай - купи курай!'
   buttons:
-    add: 'Добавить'
-    edit: 'Редактировать'
-    destroy: 'Удалить'
-    save: 'Сохранить'
     logout: '[ выйти ]'
   msg:
     are_u_sure: 'Вы уверены?'

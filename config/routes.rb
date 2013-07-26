@@ -1,5 +1,6 @@
 Toute::Application.routes.draw do
 
+
   ### frontend
   root 'dashboards#index'
   resources :sessions, :only => [:create, :destroy]
@@ -7,6 +8,8 @@ Toute::Application.routes.draw do
   ### backend
   namespace :admin do
     resources :cities
+    resources :categories
+    resources :operations
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

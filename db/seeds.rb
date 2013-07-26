@@ -9,3 +9,9 @@
 
 City.destroy_all
 cities = City.create([{ alias:'ufa', name:'Уфа' }, { alias:'kazan', name:'Казань' }, { alias:'chelny', name:'Набережные Челны' }])
+
+Operation.destroy_all
+operations = Operation.create([{ alias:'buy', name:'Куплю' }, { alias:'sale', name:'Продам' }, { alias:'exchange', name:'Обмен' }])
+
+Category.destroy_all
+#categories = Category.create([{ alias:'buy', name:'Куплю' }, { alias:'sale', name:'Продам' }, { alias:'exchange', name:'Обмен' }])

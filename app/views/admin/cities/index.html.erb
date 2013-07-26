@@ -3,7 +3,7 @@
 <table class="table table-hovered table-striped">
   <thead>
     <tr>
-      <th><%= t('cities.admin.name') %></th>
+      <th><%= t('scaffold.name') %></th>
       <th><%= t('cities.admin.alias') %></th>
       <th class="col-edit"></th>
       <th class="col-delete"></th>
@@ -15,8 +15,8 @@
       <tr>
         <td><%= city.name %></td>
         <td><%= city.alias %></td>
-        <td><%= link_to t('buttons.edit'), edit_admin_city_path(city), class: 'btn btn-inverse' %></td>
-        <td><%= link_to t('buttons.destroy'), [:admin, city], method: :delete, data: { confirm: t('msg.are_u_sure') }, class: 'btn btn-danger' %></td>
+        <td><%= link_to t('scaffold.edit'), edit_admin_city_path(city), class: 'btn btn-inverse' %></td>
+        <td><%= link_to t('scaffold.destroy'), [:admin, city], method: :delete, data: { confirm: t('msg.are_u_sure') }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to t('buttons.add'), new_admin_city_path, class: 'btn btn-primary' %>
+<%= link_to t('scaffold.add'), new_admin_city_path, class: 'btn btn-primary' %>

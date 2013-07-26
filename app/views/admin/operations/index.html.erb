@@ -1,0 +1,27 @@
+<h1>Operations</h1>
+
+<table class="table table-hovered table-striped">
+  <thead>
+    <tr>
+      <th><%= t('scaffold.name') %></th>
+      <th>Alias</th>
+      <th class="col-edit"></th>
+      <th class="col-delete"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @operations.each do |operation| %>
+      <tr>
+        <td><%= operation.name %></td>
+        <td><%= operation.alias %></td>
+        <td><%= link_to t('scaffold.edit'), edit_admin_operation_path(operation), class: 'btn btn-inverse' %></td>
+        <td><%= link_to t('scaffold.destroy'), [:admin, operation], method: :delete, data: { confirm: t('msg.are_u_sure') }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('scaffold.add'), new_admin_operation_path, class: 'btn btn-primary' %>

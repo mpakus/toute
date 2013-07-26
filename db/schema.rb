@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130725135018) do
+ActiveRecord::Schema.define(version: 20130726082138) do
+
+  create_table "categories", force: true do |t|
+    t.string   "alias",      limit: 32
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["alias"], name: "index_categories_on_alias", using: :btree
 
   create_table "cities", force: true do |t|
     t.string   "alias",      limit: 32
@@ -21,6 +30,15 @@ ActiveRecord::Schema.define(version: 20130725135018) do
   end
 
   add_index "cities", ["alias"], name: "index_cities_on_alias", using: :btree
+
+  create_table "operations", force: true do |t|
+    t.string   "alias",      limit: 32
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "operations", ["alias"], name: "index_operations_on_alias", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"

@@ -1,12 +1,12 @@
-<%= form_for([:admin, @city]) do |f| %>
-  <%= form_errors @city %>
+<%= form_for([:admin, @operation]) do |f| %>
+  <%= form_errors @operation %>
 
   <div class="field">
-    <%= f.label :alias %>
+    <%= f.label :alias %><br>
     <%= f.text_field :alias, class: 'input-xlarge', maxlength: 32  %>
   </div>
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :name %><br>
     <%= f.text_field :name, class: 'input-xlarge' %>
   </div>
   <div class="actions">

@@ -1,0 +1,8 @@
+ru:
+  scaffold:
+    name: 'Имя'
+    alias: 'Alias'
+    add: 'Добавить'
+    edit: 'Редактировать'
+    destroy: 'Удалить'
+    save: 'Сохранить'
