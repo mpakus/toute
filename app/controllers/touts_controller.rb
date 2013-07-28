@@ -25,6 +25,9 @@ class ToutsController < ApplicationController
   # POST /touts.json
   def create
     @tout = Tout.new(tout_params)
+    @tout.operation = Operation.find(params[:tout][:operation_id]) if params[:tout][:operation_id]
+    @tout.category = Category.find(params[:tout][:category_id]) if params[:tout][:category_id]
+    @tout.city = City.find(params[:tout][:city_id]) if params[:tout][:city_id]
 
     respond_to do |format|
       if @tout.save
@@ -69,6 +72,7 @@ class ToutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tout_params
-      params.require(:tout).permit(:name, :content, :operation_id, :category_id, :city_id, :user_id, :deleted)
+      #params.require(:tout).permit(:name, :content, :category_id, :city_id, :user_id, :deleted, operation_attributes: [:id, :alias, :name])
+      params.require(:tout).permit(:name, :content, :category_id, :city_id, :user_id, :deleted, :operation_id)
     end
 end
