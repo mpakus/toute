@@ -4,7 +4,7 @@ class ToutsController < ApplicationController
   # GET /touts
   # GET /touts.json
   def index
-    @touts = Tout.all
+    @touts = Tout.published
   end
 
   # GET /touts/1
