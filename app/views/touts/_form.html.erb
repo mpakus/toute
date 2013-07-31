@@ -15,6 +15,23 @@
     <%= f.text_area :content, class: 'input-xxlarge', style: 'height: 300px' %>
   </div>
   <div class="actions">
-    <%= f.submit t('scaffold.add'), class: 'btn btn-primary' %>
+
+    <% case @tout.state_name %>
+      <% when :pending %>
+        <%= f.submit "Сохранить", class: 'btn btn-primary btn-large', :name => "prepare" %>
+        <%= f.submit "Опубликовать", class: 'btn btn-warning btn-large' , :name => "publish" %>
+      <% when :prepared %>
+        <%= f.submit "Обновить", class: 'btn btn-primary btn-large' %>
+        <%= f.submit "Опубликовать", class: 'btn btn-warning btn-large', :name => "publish" %>
+
+      <% when :published %>
+        <%= f.submit "Обновить", class: 'btn btn-primary btn-large' %>
+        <%= f.submit "Снять с публикации", :name => "unpublish" %>
+
+     <% else %>
+       <%= f.submit "Обновить", class: 'btn btn-primary btn-large' %>
+    <% end %>
+
+
   </div>
 <% end %>
