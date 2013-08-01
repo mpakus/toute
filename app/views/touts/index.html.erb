@@ -11,8 +11,9 @@
     <% end %>
     <div class="subs">
       <%= tout.operation.name %> / <%= tout.category.name %> <%= t('touts.in_city') %> <%= tout.city %>
-      <span class="author"><%= tout.user.first_name %></span>
-    </div>
+    <span class="author">
+      нужно показать автора (tout.user.first_name)
+    </span>
   </div>
     <%= link_to 'Edit', edit_tout_path(tout) %>
     <%= link_to 'Destroy', tout, method: :delete, data: { confirm: 'Are you sure?' } %>

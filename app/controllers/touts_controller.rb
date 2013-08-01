@@ -4,7 +4,7 @@ class ToutsController < ApplicationController
   # GET /touts
   # GET /touts.json
   def index
-    @touts = Tout.all
+    @touts = Tout.published
   end
 
   # GET /touts/1
@@ -15,6 +15,8 @@ class ToutsController < ApplicationController
   # GET /touts/new
   def new
     @tout = Tout.new
+    @tout.save
+    redirect_to edit_tout_path(@tout.id)
   end
 
   # GET /touts/1/edit
@@ -43,9 +45,17 @@ class ToutsController < ApplicationController
   # PATCH/PUT /touts/1
   # PATCH/PUT /touts/1.json
   def update
+    if params["prepare"]
+      @tout.prepare
+    elsif params["publish"]
+      @tout.publish
+    elsif params["unpublish"]
+      @tout.unpublish
+    end
+
     respond_to do |format|
       if @tout.update(tout_params)
-        format.html { redirect_to @tout, notice: 'Tout was successfully updated.' }
+        format.html { redirect_to @tout, notice: "Объявление успешно #{@tout.state}" }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
