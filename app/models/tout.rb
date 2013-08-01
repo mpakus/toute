@@ -7,11 +7,16 @@ class Tout < ActiveRecord::Base
   #validates_presence_of :name, :content, :operation, :category, :city
 
   scope :available, ->{ where(deleted: false) }
-  scope :published, ->{ where(state: "опубликовано") }
+  scope :pended,  ->{ with_state(:pending) }
+  scope :prepared, ->{ with_state(:prepared) }
+  scope :published, ->{ with_state(:published) }
 
   state_machine initial: :pending do
-    state :pending, value: "pending"
+    # Авточерновик(пустышка)
+    state :pending, value: "черновик"
+    # Подготовленное для публикации
     state :prepared, value: "подготовлено"
+    # Опубликованное объявление
     state :published, value: "опубликовано"
 
 
