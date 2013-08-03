@@ -5,11 +5,11 @@ class ToutsController < ApplicationController
   # GET /touts.json
   def index
     operation = params[:operation]
+    @touts = Tout.approved.available.upstair
+    # operation
     if operation
       operation = Operation.where(alias: operation).first
-      @touts = Tout.filtered(operation)
-    else
-      @touts = Tout.all
+      @touts = @touts.filtered(operation)
     end
   end
 
@@ -34,6 +34,7 @@ class ToutsController < ApplicationController
     @tout.operation = Operation.find(params[:tout][:operation_id]) if params[:tout][:operation_id]
     @tout.category = Category.find(params[:tout][:category_id]) if params[:tout][:category_id]
     @tout.city = City.find(params[:tout][:city_id]) if params[:tout][:city_id]
+    @tout.approved = true
     @tout.user = current_user()
 
     respond_to do |format|
@@ -80,6 +81,6 @@ class ToutsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tout_params
       #params.require(:tout).permit(:name, :content, :category_id, :city_id, :user_id, :deleted, operation_attributes: [:id, :alias, :name])
-      params.require(:tout).permit(:name, :content, :category_id, :city_id, :user_id, :deleted, :operation_id)
+      params.require(:tout).permit(:name, :content, :category_id, :city_id, :deleted, :operation_id)
     end
 end

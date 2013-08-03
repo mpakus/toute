@@ -6,19 +6,23 @@
 <% @touts.each do |tout| %>
   <div class="tout">
     <%= link_to tout do %>
-      <h3><%= tout.name %></h3>
+      <h3>
+        <%= tout.name %>
+        <%= link_to edit_tout_path(tout), class: "btn btn-success", title: t('touts.edit') do %>
+          <span class="icon icon-edit icon-white"></span>
+        <% end %>
+        <%= link_to tout, method: :delete, data: { confirm: t('msg.are_u_sure') }, class: 'btn btn-danger', title: t('touts.finish') do %>
+          <span class="icon icon-trash icon-white"></span>
+        <% end %>
+      </h3>
       <p><%= tout.content %></p>
     <% end %>
+    <span class="date"><%= human_date(tout.created_at) %></span>
     <div class="subs">
       <%= tout.operation.name %> / <%= tout.category.name %> <%= t('touts.in_city') %> <%= tout.city.name %>,
       <span class="author"><%= tout.user.first_name %></span>
     </div>
-    <%= link_to edit_tout_path(tout), class: "btn btn-success" do %>
-      <span class="icon icon-edit icon-white"></span> <%=  t('touts.edit') %>
-    <% end %>
-    <%= link_to tout, method: :delete, data: { confirm: t('msg.are_u_sure') }, class: 'btn btn-danger' do %>
-      <span class="icon icon-trash icon-white"></span> <%= t('touts.finish') %>
-  <% end %>
   </div>
+  <hr/>
 <% end %>
 

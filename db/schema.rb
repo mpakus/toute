@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130728175206) do
+ActiveRecord::Schema.define(version: 20130803082347) do
 
   create_table "categories", force: true do |t|
     t.string   "alias",      limit: 32
@@ -50,8 +50,10 @@ ActiveRecord::Schema.define(version: 20130728175206) do
     t.boolean  "deleted",      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "approved",     default: false
   end
 
+  add_index "touts", ["approved"], name: "index_touts_on_approved", using: :btree
   add_index "touts", ["category_id"], name: "index_touts_on_category_id", using: :btree
   add_index "touts", ["city_id"], name: "index_touts_on_city_id", using: :btree
   add_index "touts", ["operation_id"], name: "index_touts_on_operation_id", using: :btree
