@@ -20,7 +20,7 @@
             <div class="nav-collapse collapse" id="nav-collapse-01">
               <ul class="nav">
                 <% Operation.find_each do |oper|  %>
-                  <li><%= link_to oper.name, touts_path(operation:oper.alias) %></li>
+                  <li><%= link_to oper.name, touts_path(operation:oper.alias, city: params[:city]) %></li>
                 <% end %>
                 <li>
                   <a href="#fakelink">О сайте</a>
@@ -30,9 +30,9 @@
                 <li>
                   <a href="">Выбрать город</a>
                   <ul>
-                    <li><a href="">Уфа</a></li>
-                    <li><a href="">Казань</a></li>
-                    <li><a href="">Челны</a></li>
+                    <% City.find_each do |city|  %>
+                      <li><%= link_to city.name, touts_path(city: city.alias, operation: params[:operation]) %></li>
+                    <% end %>
                   </ul>
                 </li>
               </ul>
