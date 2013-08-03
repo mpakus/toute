@@ -10,12 +10,15 @@
       <p><%= tout.content %></p>
     <% end %>
     <div class="subs">
-      <%= tout.operation.name %> / <%= tout.category.name %> <%= t('touts.in_city') %> <%= tout.city %>
+      <%= tout.operation.name %> / <%= tout.category.name %> <%= t('touts.in_city') %> <%= tout.city.name %>,
       <span class="author"><%= tout.user.first_name %></span>
     </div>
+    <%= link_to edit_tout_path(tout), class: "btn btn-success" do %>
+      <span class="icon icon-edit icon-white"></span> <%=  t('touts.edit') %>
+    <% end %>
+    <%= link_to tout, method: :delete, data: { confirm: t('msg.are_u_sure') }, class: 'btn btn-danger' do %>
+      <span class="icon icon-trash icon-white"></span> <%= t('touts.finish') %>
+  <% end %>
   </div>
-    <%= link_to 'Edit', edit_tout_path(tout) %>
-    <%= link_to 'Destroy', tout, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </tr>
 <% end %>
 

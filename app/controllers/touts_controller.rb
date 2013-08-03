@@ -4,7 +4,13 @@ class ToutsController < ApplicationController
   # GET /touts
   # GET /touts.json
   def index
-    @touts = Tout.all
+    operation = params[:operation]
+    if operation
+      operation = Operation.where(alias: operation).first
+      @touts = Tout.filtered(operation)
+    else
+      @touts = Tout.all
+    end
   end
 
   # GET /touts/1
@@ -28,6 +34,7 @@ class ToutsController < ApplicationController
     @tout.operation = Operation.find(params[:tout][:operation_id]) if params[:tout][:operation_id]
     @tout.category = Category.find(params[:tout][:category_id]) if params[:tout][:category_id]
     @tout.city = City.find(params[:tout][:city_id]) if params[:tout][:city_id]
+    @tout.user = current_user()
 
     respond_to do |format|
       if @tout.save
