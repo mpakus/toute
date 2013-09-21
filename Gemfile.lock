@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/anjlab/bootstrap-rails.git
+  revision: 06a6d64f172e842cab03a5097a17ad6638345435
+  branch: 3.0.0
+  specs:
+    anjlab-bootstrap-rails (3.0.0.rc2)
+      railties (>= 3.0)
+      sass (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -32,8 +41,6 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (2.2.2.0)
-      sass (~> 3.2)
     builder (3.1.4)
     callsite (0.0.11)
     capistrano (2.15.5)
@@ -58,10 +65,6 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    flatui-rails (0.0.4)
-      bootstrap-sass (= 2.2.2)
-      railties (>= 3.1)
-      sass-rails (>= 3.2.0)
     highline (1.6.19)
     hike (1.2.3)
     human_date (0.0.3)
@@ -169,13 +172,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anjlab-bootstrap-rails!
   better_errors
   binding_of_caller
-  bootstrap-sass
   capistrano
   carrierwave
   coffee-rails (~> 4.0.0)
-  flatui-rails
   human_date
   jbuilder (~> 1.2)
   jquery-rails

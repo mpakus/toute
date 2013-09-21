@@ -28,13 +28,16 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 # Bootstrap - html + css + js responsive gui
-gem 'bootstrap-sass'
+#gem 'bootstrap-sass'
 
 # Flatui - free theme over twitter Bootstrap
-gem 'flatui-rails'
+#gem 'flatui-rails'
 
 # Kaminari - easy pagination gem
 gem 'kaminari'
+
+
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails', :branch => '3.0.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -56,7 +59,6 @@ end
 gem 'rmagick'
 gem 'carrierwave'
 gem 'searchlight'
-gem 'kaminari'
 gem 'russian'
 gem 'human_date'
 
