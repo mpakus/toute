@@ -20,7 +20,13 @@ class ToutsController < ApplicationController
 
   # GET /touts/new
   def new
-    @tout = Tout.new
+    if current_user.touts.pended.size == 0
+     @tout = current_user.touts.create(params[:tout])
+    else
+     @tout = current_user.touts.pended.first
+    end
+
+    redirect_to edit_tout_path(@tout)
   end
 
   # GET /touts/1/edit
