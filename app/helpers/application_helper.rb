@@ -14,7 +14,7 @@ module ApplicationHelper
     else
       return raw %Q{
         <script src="http://ulogin.ru/js/ulogin.js" type="text/javascript" async="async"></script>
-        <div id="uLogin" data-ulogin="display=panel;fields=email,first_name,phone,photo,photo_big;optional=city,bdate,sex,country;providers=vkontakte,facebook,livejournal,odnoklassniki,twitter,google,yandex;hidden=other;redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fsessions%2F"></div>
+        <div id="uLogin" data-ulogin="display=panel;fields=email,first_name,phone,photo,photo_big;optional=city,bdate,sex,country;providers=vkontakte,facebook,livejournal,odnoklassniki,twitter,google,yandex;hidden=other;redirect_uri=#{sessions_url}"></div>
       }
     end
   end
