@@ -5,7 +5,7 @@ module ApplicationHelper
   def user_controls
     if user_signed_in?
       return raw %Q{
-        <ul class="nav pull-right user">
+        <ul class="nav user navbar-nav">
           <li><img src="#{current_user.photo}" alt="#{current_user.first_name}" class="avatar" /></li>
           <li><a href="#my-toutes">#{current_user.first_name}</a></li>
           <li>#{link_to t('buttons.logout'), session_path(666), :method => :delete}</li>

@@ -9,66 +9,69 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="row demo-row">
-
-    <div class="span9">
-      <div class="navbar navbar-inverse">
-        <div class="navbar-inner">
-          <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-01"></button>
-            <div class="nav-collapse collapse" id="nav-collapse-01">
-              <ul class="nav">
-                <% Operation.find_each do |oper|  %>
-                  <li><%= link_to oper.name, touts_path(operation:oper.alias, city: params[:city]) %></li>
-                <% end %>
-                <li>
-                  <a href="#fakelink">О сайте</a>
-                </li>
-              </ul>
-              <ul class="nav pull-right">
-                <li>
-                  <a href="">Выбрать город</a>
-                  <ul>
-                    <% City.find_each do |city|  %>
-                      <li><%= link_to city.name, touts_path(city: city.alias, operation: params[:operation]) %></li>
-                    <% end %>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">TOUTE</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Категории <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <% Operation.find_each do |oper|  %>
+                <li><%= link_to oper.name, touts_path(operation:oper.alias, city: params[:city]) %></li>
+              <% end %>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Город <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <% City.find_each do |city|  %>
+                <li><%= link_to city.name, touts_path(city: city.alias, operation: params[:operation]) %></li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+        <div class="navbar-right">
+          <%= user_controls() %>
         </div>
-      </div><!-- navbar -->
-    </div>
-
-    <div class="span3">
-      <div class="navbar navbar">
-        <div class="navbar-inner">
-          <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-02"></button>
-            <div class="nav-collapse collapse" id="nav-collapse-02">
-              <%= user_controls() %>
-            </div>
+        <!--form class="navbar-form navbar-right">
+          <div class="form-group">
+            <input type="text" placeholder="Email" class="form-control">
           </div>
-        </div>
-      </div><!-- navbar -->
+          <div class="form-group">
+            <input type="password" placeholder="Password" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success">Sign in</button>
+        </form-->
+      </div>
     </div>
-
   </div>
 
-  <% flash.each do |name, msg| %>
-    <% if msg.is_a?(String) %>
-      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-        <a class="close" data-dismiss="alert">&#215;</a>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      </div>
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <% if msg.is_a?(String) %>
+        <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+          <a class="close" data-dismiss="alert">&#215;</a>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+    <%= yield %>
 
-  <%= yield %>
-
-</div>
+    <footer>
+      <p>&copy; Company 2013</p>
+    </footer>
+  </div>
 
 </body>
 </html>
