@@ -9,5 +9,6 @@ class Tout < ActiveRecord::Base
   scope :available, ->{ where(deleted: false) }
   scope :approved,  ->{ where(approved: true) }
   scope :upstair, ->{ order('id DESC') }
-  scope :filtered, lambda{ |operation| where(operation_id: operation.id) }
+  scope :filtered, lambda{ |operation| where(operation_id: operation.id)}
+  scope :textlike, lambda{ |texttofind| where(["content LIKE ?", "%#{texttofind}%"])}
 end

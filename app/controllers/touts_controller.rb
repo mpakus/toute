@@ -5,11 +5,15 @@ class ToutsController < ApplicationController
   # GET /touts.json
   def index
     operation = params[:operation]
+    likefilter=params[:textlike]
     @touts = Tout.approved.available.upstair
     # operation
     if operation
       operation = Operation.where(alias: operation).first
       @touts = @touts.filtered(operation)
+    end
+    if likefilter
+      @touts=@touts.textlike(likefilter)
     end
   end
 
