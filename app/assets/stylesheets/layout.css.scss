@@ -1,9 +1,39 @@
-.user{
+body{
+  padding-top: 60px;
+}
+.navbar-inverse{ border: none; }
+.navbar-inverse .navbar-nav > li > a { color: #FFF; }
+.toute-navbar, .nav{ background: #442B69; }
+.toute-navbar-menu > li > a{ color: #FFF; }
+.dropdown-menu > li > a:hover { background: #442B69; color: #FFF; }
+
+.navbar-brand {
+  font-family: 'Play', sans-serif;
+  font-size: 43px;
+  font-weight: bold;
+  color: #FFF !important;
+}
+
+.toute-user{
   .avatar{
     margin-top: 3px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 3px solid #DDD;
+    border: 3px solid #FFF;
+    background: #FFF;
   }
+}
+
+h1, h2, h3, h4{
+  font-family: 'Play', sans-serif;
+  color: #442B69;
+  margin: 0;
+}
+h1.title{
+  background:  #442B69;
+  display: inline-block;
+  color: #FFF;
+  padding: 0 5px;
+  margin-bottom: 10px;
 }

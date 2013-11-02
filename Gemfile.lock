@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 06a6d64f172e842cab03a5097a17ad6638345435
-  branch: 3.0.0
+  revision: 834e6f2cd82acc30b362c56a7e60bcc9d990015f
+  branch: master
   specs:
-    anjlab-bootstrap-rails (3.0.0.rc2)
+    anjlab-bootstrap-rails (3.0.0.3)
       railties (>= 3.0)
       sass (>= 3.2)
 
@@ -99,6 +99,7 @@ GEM
     net-ssh (2.6.8)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
+    nprogress-rails (0.1.2.3)
     polyglot (0.3.3)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
@@ -184,6 +185,7 @@ DEPENDENCIES
   kaminari
   meta_request
   mysql2
+  nprogress-rails
   quiet_assets
   rails (= 4.0.0)
   rmagick

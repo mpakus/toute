@@ -3,8 +3,15 @@ ru:
     title: 'Все продай - купи курай!'
   buttons:
     logout: '[ выйти ]'
+    close: 'Закрыть'
   msg:
     are_u_sure: 'Вы уверены?'
+  menu:
+    operations: 'Разделы'
+    city: 'Город'
+    authorize: 'Войти через соц.сети'
+  form:
+    search: 'найти'
 
 #    human_date
   date:

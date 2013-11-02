@@ -5,7 +5,7 @@ module ApplicationHelper
   def user_controls
     if user_signed_in?
       return raw %Q{
-        <ul class="nav user navbar-nav">
+        <ul class="nav navbar-nav toute-user">
           <li><img src="#{current_user.photo}" alt="#{current_user.first_name}" class="avatar" /></li>
           <li><a href="#my-toutes">#{current_user.first_name}</a></li>
           <li>#{link_to t('buttons.logout'), session_path(666), :method => :delete}</li>
@@ -13,8 +13,13 @@ module ApplicationHelper
       }
     else
       return raw %Q{
-        <script src="http://ulogin.ru/js/ulogin.js" type="text/javascript" async="async"></script>
-        <div id="uLogin" data-ulogin="display=panel;fields=email,first_name,phone,photo,photo_big;optional=city,bdate,sex,country;providers=vkontakte,facebook,livejournal,odnoklassniki,twitter,google,yandex;hidden=other;redirect_uri=#{sessions_url}"></div>
+        <ul class="nav navbar-nav">
+          <li class="navbar-form">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#login_modal">
+              #{I18n.t('menu.authorize')}
+            </button>
+          </li>
+        </div>
       }
     end
   end

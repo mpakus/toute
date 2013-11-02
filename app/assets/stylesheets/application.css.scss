@@ -1,10 +1,9 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- */
+//= require twitter/bootstrap
+//= require layout
+//= require touts
+//= require_self
 
-// import original bootstrap
-@import "twitter/bootstrap";
-
-div{
-  border: 1px solid gray;
-}
+$nprogress-color: #B0454C;
+@import 'nprogress';
+@import 'nprogress-bootstrap';
+#nprogress .bar { height: 5px !important; }

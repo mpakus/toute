@@ -4,17 +4,7 @@ class ToutsController < ApplicationController
   # GET /touts
   # GET /touts.json
   def index
-    operation = params[:operation]
-    @touts = Tout.approved.available.upstair
-    # operation
-    if operation
-      operation = Operation.where(alias: operation).first
-      @touts = @touts.filtered(operation)
-    end
-    likefilter=params[:textlike]
-    if likefilter
-      @touts=@touts.where(['content LIKE ?', "%#{likefilter}%"])
-    end
+    @touts = Tout.filter_by(operation: params[:operation], city: params[:city], string: params[:string])
   end
 
   # GET /touts/1

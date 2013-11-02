@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'kaminari'
 
 
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails', :branch => '3.0.0'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails', :branch => 'master'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -61,6 +61,7 @@ gem 'carrierwave'
 gem 'searchlight'
 gem 'russian'
 gem 'human_date'
+gem 'nprogress-rails'
 
 group :production do
   gem 'unicorn'
