@@ -12,7 +12,7 @@ class Tout < ActiveRecord::Base
   #scope :filtered, lambda{ |operation| where(operation_id: operation.id) }
   scope :city,      lambda{ |city| where(city: City.where(alias: city).first ) unless city.nil? }
   scope :operation, lambda{ |operation| where(operation: Operation.where(alias:operation).first) unless operation.nil? }
-  scope :search,    lambda{ |string| where('content LIKE ?', "%#{string}%") unless string.nil? }
+  scope :search,    lambda{ |string| where('content LIKE ? OR name LIKE ?', "%#{string}%", "%#{string}%") unless string.nil? }
 
   ##
   # Filter touts by given named parameters (works only in Ruby 2)
