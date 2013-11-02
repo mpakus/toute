@@ -1,6 +1,10 @@
-toute
+Toute
 ====
 Social classifieds platform
+
+Screenshot
+====
+![Alt text](https://www.monosnap.com/image/c1tpioVA3npCcPOYo2KP9SriC.png)
 
 Main user flow
 ====
