@@ -11,6 +11,10 @@ class ToutsController < ApplicationController
       operation = Operation.where(alias: operation).first
       @touts = @touts.filtered(operation)
     end
+    likefilter=params[:textlike]
+    if likefilter
+      @touts=@touts.where(['content LIKE ?', "%#{likefilter}%"])
+    end
   end
 
   # GET /touts/1

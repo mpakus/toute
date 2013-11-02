@@ -40,6 +40,12 @@
               <% end %>
             </ul>
           </li>
+          <li>
+            <%= form_tag(touts_path, method: "get") do %>
+                <%= text_field_tag(:textlike, params[:textlike], placeholder: "поиск" ) %>
+                <%= submit_tag("Search") %>
+            <% end %>
+          </li>
         </ul>
         <div class="navbar-right">
           <%= user_controls() %>
