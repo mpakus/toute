@@ -68,6 +68,7 @@ group :production do
 end
 
 group :development do
+  gem 'rails-footnotes', '>= 3.7.9'
   gem 'capistrano'
   gem 'rvm-capistrano'
   gem 'better_errors'

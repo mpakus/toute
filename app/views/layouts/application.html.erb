@@ -83,11 +83,14 @@
     <%= yield %>
 
     <footer class="navbar navbar-fixed-bottom">
+      <div id="footnotes_holder"></div>
+
       <div class="container col-lg-12">
         <p class="navbar-right">Powered by <a href="https://github.com/mpakus/toute">Open Source "Toute" Classifieds Platform</a></p>
       </div>
     </footer>
   </div>
+
 
   <%= render 'inc/login_modal' unless user_signed_in? %>
 
