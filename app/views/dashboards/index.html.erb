@@ -1,3 +1,20 @@
 <h1 class="title">Все продай - купи курай!</h1>
 
-<p>тут будут последнии обновления объяв</p>
+<!-- <p>тут будут последнии обновления объяв</p> -->
+<% cache(action: 'recent', action_suffix: 'whole_dashboard') do %>
+  <% Operation.all.each do |operation| %>
+    <% cache(operation) do %>
+      <div class="operation">
+        <h3><%= link_to operation.name, touts_path(operation:operation.alias, city: params[:city]) %></h3>
+        <% operation.touts.order("id").limit(2).each do |tout| %>
+          <% cache(tout) do %>
+            <div class="tout_in_brief">
+              <%= link_to tout.name, tout %>
+              <p><%= truncate(strip_tags(tout.content),length:80) %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
