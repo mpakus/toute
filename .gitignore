@@ -13,6 +13,7 @@ test/version_tmp
 tmp
 log
 .idea
+/public/images
 
 # YARD artifacts
 .yardoc
