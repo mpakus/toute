@@ -36,6 +36,7 @@ Versions
 0.2
 - pagination
 - photos for each classified
+- breadcrumbs navigation
 
 0.1
 - classifieds
