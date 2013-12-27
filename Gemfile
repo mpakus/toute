@@ -27,18 +27,6 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-# Bootstrap - html + css + js responsive gui
-#gem 'bootstrap-sass'
-
-# Flatui - free theme over twitter Bootstrap
-#gem 'flatui-rails'
-
-# Kaminari - easy pagination gem
-gem 'kaminari'
-
-
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails', :branch => 'master'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -47,28 +35,22 @@ end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
+# Kaminari - easy pagination gem
+gem 'kaminari'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails', :branch => 'master'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'searchlight'
 gem 'russian'
 gem 'human_date'
 gem 'nprogress-rails'
+gem 'breadcrumbs_on_rails'
 
 group :production do
   gem 'unicorn'
 end
 
 group :development do
-  gem 'rails-footnotes', '>= 3.7.9'
   gem 'capistrano'
   gem 'rvm-capistrano'
   gem 'better_errors'

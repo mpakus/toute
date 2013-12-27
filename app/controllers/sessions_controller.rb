@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     json = open("http://ulogin.ru/token.php?token=#{token}&host=#{request.host}").read
     unless json.blank?
       ulogin = JSON.parse(json).with_indifferent_access
+      logger.info ulogin
 
       redirect_to root_path, notice: t('sessions.error.token_expired') if !ulogin[:error].nil? && ulogin[:error] = 'token expired'
       redirect_to root_path, notice: t('sessions.error.empty_email') if ulogin[:email].nil? || ulogin[:email].blank?

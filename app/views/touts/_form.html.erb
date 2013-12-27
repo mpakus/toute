@@ -1,22 +1,47 @@
-<%= form_for(@tout, role: 'form', class: "form-horizontal") do |f| %>
-  <%= form_errors @tout, false %>
-  <% # todo: change to default values from URI /:city/:operation/:category %>
-  <div class="form-group col-lg-4">
-    <%= f.collection_select :operation_id, Operation.all, :id, :name, {}, class: 'form-control' %>
+<%= form_for(@tout, multipart: true, role: 'form', class: "form form-horizontal") do |f| %>
+
+  <%= form_errors(@tout, false) %>
+
+  <div class="row">
+    <div class="form-group col-lg-4">
+      <%= f.collection_select :operation_id, Operation.all, :id, :name, {}, class: 'form-control' %>
+    </div>
+    <div class="form-group col-lg-4">
+      <%= f.collection_select :category_id, Category.all, :id, :name, {}, class: 'form-control' %>
+    </div>
+    <div class="form-group col-lg-4">
+      <%= f.collection_select :city_id, City.all, :id, :name, {}, class: 'form-control' %>
+    </div>
   </div>
-  <div class="form-group col-lg-4">
-    <%= f.collection_select :category_id, Category.all, :id, :name, {}, class: 'form-control' %>
+  <div class="row">
+    <div class="form-group col-lg-12">
+      <%= f.text_field :name, placeholder: t('activerecord.attributes.tout.name'), class: 'form-control' %>
+    </div>
+    <div class="form-group col-lg-12">
+      <%= f.text_area :content, placeholder: t('activerecord.attributes.tout.content'), class: 'form-control', style: 'height: 300px' %>
+    </div>
   </div>
-  <div class="form-group col-lg-4">
-    <%= f.collection_select :city_id, City.all, :id, :name, {}, class: 'form-control' %>
+  <div class="row">
+    <div class="form-group col-lg-6">
+      <%= f.file_field :image1, class: 'form-control' %>
+    </div>
+    <div class="form-group col-lg-6">
+      <%= f.file_field :image2, class: 'form-control' %>
+    </div>
+    <div class="form-group col-lg-6">
+      <%= f.file_field :image3, class: 'form-control' %>
+    </div>
+    <div class="form-group col-lg-6">
+      <%= f.file_field :image4, class: 'form-control' %>
+    </div>
+    <div class="form-group col-lg-6">
+      <%= f.file_field :image5, class: 'form-control' %>
+    </div>
+    <div class="form-group col-lg-6">
+      <%= f.file_field :image6, class: 'form-control' %>
+    </div>
   </div>
-  <div class="form-group col-lg-12">
-    <%= f.text_field :name, placeholder: t('activerecord.attributes.tout.name'), class: 'form-control' %>
-  </div>
-  <div class="form-group col-lg-12">
-    <%= f.text_area :content, placeholder: t('activerecord.attributes.tout.content'), class: 'form-control', style: 'height: 300px' %>
-  </div>
-  <div class="actions col-lg-12">
-    <%= f.submit t('scaffold.add'), class: 'btn btn-success' %>
-  </div>
+
+  <%= f.submit t('scaffold.add'), class: 'btn btn-success' %>
+
 <% end %>

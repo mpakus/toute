@@ -29,11 +29,11 @@ h1, h2, h3, h4{
   font-family: 'Play', sans-serif;
   color: #442B69;
   margin: 0;
+  padding: 0;
 }
-h1.title{
-  background:  #442B69;
-  display: inline-block;
-  color: #FFF;
-  padding: 0 5px;
+h1{
+  font-size: 23px;
+}
+.breadcrumb{
   margin-bottom: 10px;
 }

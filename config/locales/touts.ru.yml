@@ -6,6 +6,7 @@ ru:
     new: 'Новое объявление'
     edit: 'Редактировать'
     finish: 'Закрыть'
+    created: 'Объявление успешно создано'
   activerecord:
     attributes:
       tout:

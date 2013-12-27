@@ -1,7 +1,4 @@
 class DashboardsController < ApplicationController
-  def index
-  end
-
-  def static
-  end
+  def index;end
+  def static;end
 end

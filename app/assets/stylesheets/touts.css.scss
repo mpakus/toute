@@ -1,3 +1,25 @@
 .add_tout{
   text-align: right;
+  margin-bottom: 10px;
+}
+
+.label{
+  > a{
+    color: #FFF;
+    text-decoration: none;
+  }
+}
+
+.photos-median{
+  img{
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+}
+.photos-thumb{
+  img{
+    margin-right: 10px;
+    border-radius: 5px;
+  }
 }

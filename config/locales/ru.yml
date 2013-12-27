@@ -1,19 +1,26 @@
 ru:
   app:
-    title: 'Все продай - купи курай!'
+    title: 'Открытая доска объявлений'
   buttons:
     logout: '[ выйти ]'
     close: 'Закрыть'
   msg:
     are_u_sure: 'Вы уверены?'
   menu:
-    operations: 'Разделы'
-    city: 'Город'
-    authorize: 'Войти через соц.сети'
+    operations: 'Выбрать раздел'
+    city: 'Выбрать город'
+    authorize: 'Войти через соц. сети'
   form:
     search: 'найти'
 
-#    human_date
+# kaminari
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&larr;"
+      next: "&rarr;"
+      truncate: "..."
   date:
     formats:
       today: "Today"

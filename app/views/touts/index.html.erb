@@ -1,33 +1,36 @@
-<h1 class="title"><%= t('touts.list') %></h1>
-
-<div class="add_tout">
-  <%= link_to new_tout_path, class: 'btn btn-success' do %>
-    <span class="glyphicon glyphicon-plus"></span> <%= t('touts.add') %>
-  <% end %>
-</div>
+<%= render 'inc/add_button' %>
 
 <% @touts.each do |tout| %>
   <div class="tout">
     <%= link_to tout do %>
       <h3>
         <%= tout.name %>
+        <!--
         <%= link_to edit_tout_path(tout), class: "btn btn-success btn-xs", title: t('touts.edit') do %>
           <span class="glyphicon glyphicon-trash"></span> delete
         <% end %>&nbsp;
         <%= link_to tout, method: :delete, data: { confirm: t('msg.are_u_sure') }, class: 'btn btn-danger btn-xs', title: t('touts.finish') do %>
           <span class="glyphicon glyphicon-pencil"></span> edit
         <% end %>
+        -->
       </h3>
-      <p><%= tout.content %></p>
+      <span class="date"><%= human_date(tout.created_at) %></span>
+      <div class="photos-thumb">
+        <% if tout.photos %>
+          <% tout.photos.each do |photo| %>
+            <%= image_tag photo.image.thumb.url if photo.image %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-    <span class="date"><%= human_date(tout.created_at) %></span>
     <div class="toute-sub-tags">
-      <span class="label label-primary"><%= tout.operation.name %></span>
-      <span class="label label-success"><%= tout.category.name %></span>
-      <span class="label label-info"><%= tout.city.name %></span>
+      <span class="label label-primary"><%= link_to tout.operation.name, url_for(operation: tout.operation.alias, city: params[:city], category: params[:category]) %></span>
+      <span class="label label-success"><%= link_to tout.category.name, url_for(operation: params[:operation], city: params[:city], category: tout.category.alias) %></span>
+      <span class="label label-info"><%= link_to tout.city.name, url_for(operation: params[:operation], city: tout.city.alias, category: params[:category]) %></span>
       <span class="label label-warning"><%= tout.user.first_name %></span>
     </div>
   </div>
   <hr/>
 <% end %>
 
+<%= paginate @touts %>

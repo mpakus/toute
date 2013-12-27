@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130803082347) do
+ActiveRecord::Schema.define(version: 20131227182750) do
 
   create_table "categories", force: true do |t|
     t.string   "alias",      limit: 32
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20130803082347) do
   end
 
   add_index "operations", ["alias"], name: "index_operations_on_alias", using: :btree
+
+  create_table "photos", force: true do |t|
+    t.integer  "tout_id"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["tout_id"], name: "index_photos_on_tout_id", using: :btree
 
   create_table "touts", force: true do |t|
     t.string   "name"

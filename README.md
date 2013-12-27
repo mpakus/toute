@@ -1,6 +1,6 @@
 Toute
 ====
-Social classifieds platform
+Open classifieds platform
 
 Screenshot
 ====
@@ -30,3 +30,14 @@ If error __"dlopen(/Users/lun/.rvm/gems/ruby-2.0.0-p247@tout/gems/rmagick-2.13.2
 Execute this:
 
     gem pristine rmagick
+
+Versions
+====
+0.2
+- pagination
+- photos for each classified
+
+0.1
+- classifieds
+- social authorization
+- simple search & output

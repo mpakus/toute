@@ -1,5 +1,23 @@
 module ApplicationHelper
 
+
+  ##
+  # Show flash messages
+  def flash_message(flash)
+    out = ""
+    flash.each do |name, msg|
+      if msg.is_a?(String) && !msg.blank? && !name.blank?
+        out << %Q{
+          <div class="alert alert-#{name == :notice ? "success" : "error"}">
+            <a class="close" data-dismiss="alert">&#215;</a>
+            #{content_tag(:div, msg, :id => "flash_#{name}")}
+          </div>
+        }
+      end
+    end
+    raw out
+  end
+
   ###
   #
   def user_controls
@@ -30,19 +48,19 @@ module ApplicationHelper
     html = ''
     if form.errors.any?
       plural = Russian::pluralize(form.errors.count, 'ошибка', 'ошибки', 'ошибок')
-      html = "
-        <div class=\"alert alert-error\">
-          <a class=\"close\" data-dismiss=\"alert\">&#215;</a>
+      html = %Q{
+        <div class="alert alert-error">
+          <a class="close" data-dismiss="alert alert-danger">&times;</a>
           <div>У вас #{form.errors.count} #{plural}:</div>
-          <ul>"
+          <ul>}
       form.errors.each do |field, msg|
         html += (show_field) ? "<li>#{field} #{msg}</li>" : "<li>#{msg}</li>"
       end
-      html += "
+      html += %Q{
         </ul>
-      </div>"
+      </div>}
     end
-    return raw(html)
+    html.html_safe
   end
 
 end
