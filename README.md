@@ -1,10 +1,10 @@
-Toute
+TOUTE
 ====
 Open classifieds platform
 
 Screenshot
 ====
-![Alt text](https://www.monosnap.com/image/c1tpioVA3npCcPOYo2KP9SriC.png)
+![Alt text](http://monosnap.com/image/QwR6YaE0ZXb4j48ejcDBUhYd5.png)
 
 Main user flow
 ====
@@ -33,6 +33,12 @@ Execute this:
 
 Versions
 ====
+
+0.3
+- shows last classifieds on main page
+- check owner and admin privileges
+- edit toute photos
+
 0.2
 - pagination
 - photos for each classified

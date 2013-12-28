@@ -7,8 +7,9 @@ ru:
   msg:
     are_u_sure: 'Вы уверены?'
   menu:
-    operations: 'Выбрать раздел'
-    city: 'Выбрать город'
+    operations: 'Раздел'
+    city: 'Город'
+    category: 'Рубрика'
     authorize: 'Войти через соц. сети'
   form:
     search: 'найти'

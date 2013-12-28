@@ -1,12 +1,32 @@
+@mixin transition_easy(){
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+a{
+  @include transition_easy();
+}
+
 .add_tout{
   text-align: right;
   margin-bottom: 10px;
 }
 
+.tout{
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
 .label{
+  border-radius: 0;
   > a{
     color: #FFF;
     text-decoration: none;
+    @include transition_easy();
+  }
+  > a:hover{
+    opacity: 0.7;
   }
 }
 
@@ -22,4 +42,11 @@
     margin-right: 10px;
     border-radius: 5px;
   }
+}
+
+.photos-dashboard{
+  width: 70px;
+  border-radius: 5px;
+  margin-right: 5px;
+  float: left;
 }

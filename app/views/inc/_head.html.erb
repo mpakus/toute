@@ -15,24 +15,32 @@
         <li><a href="#contact">Contact</a></li-->
         <li><%= link_to t('touts.list'), touts_path %></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('menu.operations') %> <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('menu.city') %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <% Operation.find_each do |oper|  %>
-              <li><%= link_to oper.name, touts_path(operation:oper.alias, city: params[:city]) %></li>
+            <% City.find_each do |city| %>
+              <li><%= link_to city.name, touts_path(city: city.alias, operation: params[:operation], category: params[:category]) %></li>
             <% end %>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('menu.city') %> <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('menu.operations') %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <% City.find_each do |city|  %>
-              <li><%= link_to city.name, touts_path(city: city.alias, operation: params[:operation]) %></li>
+            <% Operation.find_each do |oper| %>
+              <li><%= link_to oper.name, touts_path(city: params[:city], operation:oper.alias, category: params[:category]) %></li>
+            <% end %>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('menu.category') %> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <% Category.find_each do |category| %>
+              <li><%= link_to category.name, touts_path(city: params[:city], operation: params[:operation], category: category.alias) %></li>
             <% end %>
           </ul>
         </li>
       </ul>
 
-      <div class="navbar-right">
+      <!--div class="navbar-right">
         <%= form_tag(touts_path, method: "get", class: "navbar-form") do %>
           <div class="form-group">
             <%= text_field_tag(:string, params[:string], placeholder: t('form.search'), class: "form-control" ) %>
@@ -41,7 +49,7 @@
             <button class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
           </div>
         <% end %>
-      </div>
+      </div-->
 
       <div class="navbar-right">
         <%= user_controls() %>

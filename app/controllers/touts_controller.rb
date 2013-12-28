@@ -1,9 +1,9 @@
 class ToutsController < ApplicationController
   before_action :set_tout, only: [:show, :edit, :update, :destroy]
-  before_action :set_breadcrumb, only: [:index, :new, :show]
+  before_action :set_breadcrumb, only: [:index, :new, :show, :edit]
 
   def index
-    @touts = Tout.filter_by(operation: params[:operation], city: params[:city], string: params[:string]).page(params[:page]).per(2)
+    @touts = Tout.filter_by(operation: params[:operation], city: params[:city], category: params[:category], string: params[:string]).page(params[:page]).per(15)
   end
 
   # GET /touts/1
@@ -48,6 +48,7 @@ class ToutsController < ApplicationController
   def update
     respond_to do |format|
       if @tout.update(tout_params)
+        upload_photos(6, true)
         format.html { redirect_to @tout, notice: 'Tout was successfully updated.' }
         format.json { head :no_content }
       else
@@ -70,7 +71,15 @@ class ToutsController < ApplicationController
   private
     ##
     # Upload number of images
-    def upload_photos(num)
+    def upload_photos(num, cleanup=false)
+      if cleanup
+        (1..num).each do |i|
+          if params["image#{i}".to_sym]
+            @tout.photos.destroy_all
+            break
+          end
+        end
+      end
       (1..num).each do |i|
         name = "image#{i}"
         @tout.photos << Photo.new(image: params[:tout][name.to_sym]) unless params[:tout][name.to_sym].nil?
