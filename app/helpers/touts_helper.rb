@@ -14,10 +14,13 @@ module ToutsHelper
 <div class="tout">
   <div class="clearfix">
     #{image_tag tout.photos.first.image.thumb.url, class: 'photos-dashboard' unless tout.photos.first.nil?}
-    #{link_to tout.name, tout}
+    #{tout_tags(tout, {not_operation: true, not_city: true})}
+    <p>
+      #{link_to tout.name, tout}
+    </p>
   </div>
   <div class="toute-sub-tags">
-    #{tout_tags(tout, {not_operation: true, not_city: true})}
+
   </div>
 </div>
       }
@@ -27,10 +30,10 @@ module ToutsHelper
 
   def tout_tags(tout, opt={})
     out = ''
-    out << %Q{<span class="label label-primary">#{link_to tout.operation.name, touts_path(operation: tout.operation.alias, city: params[:city], category: params[:category])}</span>} unless opt[:not_operation]
-    out << %Q{<span class="label label-success">#{link_to tout.category.name, touts_path(operation: params[:operation], city: params[:city], category: tout.category.alias)}</span>} unless opt[:not_category]
-    out << %Q{<span class="label label-info">#{link_to tout.city.name, touts_path(operation: params[:operation], city: tout.city.alias, category: params[:category])}</span>} unless opt[:not_city]
-    out << %Q{<span class="label label-warning">#{tout.user.first_name}</span>} unless opt[:not_user]
+    out << %Q{<span class="operation">#{link_to tout.operation.name, touts_path(operation: tout.operation.alias, city: params[:city], category: params[:category])}</span> } unless opt[:not_operation]
+    out << %Q{<strong class="category">#{link_to tout.category.name, touts_path(operation: params[:operation], city: params[:city], category: tout.category.alias)}</strong> } unless opt[:not_category]
+    out << %Q{ от <span class="">#{tout.user.first_name}</span> } unless opt[:not_user]
+    out << %Q{<span class="city">г. #{link_to tout.city.name, touts_path(operation: params[:operation], city: tout.city.alias, category: params[:category])}</span> } unless opt[:not_city]
     out.html_safe
   end
 

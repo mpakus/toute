@@ -1,4 +1,6 @@
 body{
+  padding: 0;
+  margin: 0;
   padding-top: 60px;
 }
 .navbar-inverse{ border: none; }
@@ -6,6 +8,13 @@ body{
 .toute-navbar, .nav{ background: #442B69; }
 .toute-navbar-menu > li > a{ color: #FFF; }
 .dropdown-menu > li > a:hover { background: #442B69; color: #FFF; }
+.toute-footer{
+  padding: 20px;
+  overflow: hidden;
+  line-height: 30px;
+  height: 70px;
+  text-align: center;
+}
 
 .navbar-brand {
   font-family: 'Play', sans-serif;

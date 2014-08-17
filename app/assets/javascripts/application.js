@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
-//= require twitter/bootstrap
+//= require jquery
+//= require bootstrap-sprockets
 //= require_tree .

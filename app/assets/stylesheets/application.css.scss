@@ -1,7 +1,9 @@
-//= require twitter/bootstrap
+//= require_self
 //= require layout
 //= require touts
-//= require_self
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 $nprogress-color: #B0454C;
 @import 'nprogress';

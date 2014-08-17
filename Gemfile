@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.4'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -25,7 +25,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -37,8 +37,9 @@ end
 
 # Kaminari - easy pagination gem
 gem 'kaminari'
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails', :branch => 'master'
-gem 'rmagick'
+gem "bootstrap-sass", "~> 3.2.0"
+gem 'autoprefixer-rails'
+gem 'mini_magick'
 gem 'carrierwave'
 gem 'searchlight'
 gem 'russian'
@@ -51,6 +52,8 @@ group :production do
 end
 
 group :development do
+  gem "spring"
+  gem "net-ssh", "~> 2.7.0"
   gem 'capistrano'
   gem 'rvm-capistrano'
   gem 'better_errors'
@@ -58,4 +61,5 @@ group :development do
   gem 'sextant'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  gem "bullet"
 end

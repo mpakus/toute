@@ -5,19 +5,27 @@
 <% City.all.each do |city| %>
   <div class="row">
     <div class="col-lg-12">
-      <h3><%= link_to city.name, touts_path(city: city.alias) %></h3>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title"><%= link_to city.name, touts_path(city: city.alias) %></h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-4">
+              <%= last_touts(city, 'buy', 5) %>
+            </div>
+            <div class="col-lg-4">
+              <%= last_touts(city, 'sale', 5) %>
+            </div>
+            <div class="col-lg-4">
+              <%= last_touts(city, 'exchange', 5) %>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-4">
-      <%= last_touts(city, 'buy', 5) %>
-    </div>
-    <div class="col-lg-4">
-      <%= last_touts(city, 'sale', 5) %>
-    </div>
-    <div class="col-lg-4">
-      <%= last_touts(city, 'exchange', 5) %>
-    </div>
-  </div>
-  <hr/>
+
 <% end %>
