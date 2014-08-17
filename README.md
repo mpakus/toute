@@ -25,14 +25,13 @@ Execute this:
 
     bundle exec gem install mysql2 -- –with-mysql-config=/usr/local/bin/mysql_config ARCHFLAGS="-arch x86_64"
 
-If error __"dlopen(/Users/lun/.rvm/gems/ruby-2.0.0-p247@tout/gems/rmagick-2.13.2/lib/RMagick2.bundle, 9): Library not loaded: /usr/local/lib/libMagickCore-Q16.7.dylib"__ 
-
-Execute this:
-
-    gem pristine rmagick
-
 Versions
 ====
+
+0.4
+- fresh Rails 4.1.4
+- Bootstrap SASS
+- design fixes
 
 0.3
 - shows last classifieds on main page
