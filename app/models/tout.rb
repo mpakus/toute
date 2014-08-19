@@ -5,6 +5,7 @@ class Tout < ActiveRecord::Base
   belongs_to :user
 
   has_many :photos
+  has_many :comments
 
   validates_presence_of :name, :content, :operation, :category, :city
 
