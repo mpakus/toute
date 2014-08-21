@@ -11,6 +11,9 @@ Toute::Application.routes.draw do
   #  end
   #end
 
+  resources :touts do
+    resources :comments
+  end
 
   ### frontend
   root 'dashboards#index'

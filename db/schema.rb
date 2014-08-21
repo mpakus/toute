@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131227182750) do
+ActiveRecord::Schema.define(version: 20140819102750) do
 
   create_table "categories", force: true do |t|
     t.string   "alias",      limit: 32
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20131227182750) do
   end
 
   add_index "cities", ["alias"], name: "index_cities_on_alias", using: :btree
+
+  create_table "comments", force: true do |t|
+    t.integer  "tout_id"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["tout_id"], name: "index_comments_on_tout_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "operations", force: true do |t|
     t.string   "alias",      limit: 32

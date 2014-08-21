@@ -24,4 +24,22 @@
     <%= simple_format @tout.content %>
   </div>
 </div>
+<hr>
+<div class="row">
+  <% @tout.comments.each do |comment| %>
+    <div class="col-lg-<%= (@tout.photos.length > 0) ? 8 : 12 %>">
+	<%= simple_format comment.body %>
+    </div>
+    <div class="col-lg-<%= (@tout.photos.length > 0) ? 8 : 12 %>">
+	<% if !comment.user.nil? %>
+	    от <span class=""> <%= comment.user.first_name %></span>
+	<% end %>
+	<% only_for_owner @tout do %>
+	    <%= link_to t('scaffold.destroy'), [comment.tout, comment], class: "btn btn-success btn-xs", method: :delete %>
+	<% end %>
+	<hr>
+    </div>
+  <% end %>
+</div>
 
+<%= render 'cform' unless !user_signed_in? %>
