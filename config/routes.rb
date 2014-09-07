@@ -2,7 +2,9 @@ Toute::Application.routes.draw do
 
 
   # frontend
-  resources :touts
+  resources :touts do
+    resources :comments, controller: 'touts/comments', only: [:create, :destroy]
+  end
   #scope '(:operation)' do
   #  scope '(:category)' do
   #    scope '(:city)' do

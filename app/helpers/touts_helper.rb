@@ -32,7 +32,7 @@ module ToutsHelper
     out = ''
     out << %Q{<span class="operation">#{link_to tout.operation.name, touts_path(operation: tout.operation.alias, city: params[:city], category: params[:category])}</span> } unless opt[:not_operation]
     out << %Q{<strong class="category">#{link_to tout.category.name, touts_path(operation: params[:operation], city: params[:city], category: tout.category.alias)}</strong> } unless opt[:not_category]
-    out << %Q{ от <span class="">#{tout.user.first_name}</span> } unless opt[:not_user]
+    out << %Q{ #{t('from')} <span class="">#{tout.user.name}</span> } unless opt[:not_user]
     out << %Q{<span class="city">г. #{link_to tout.city.name, touts_path(operation: params[:operation], city: tout.city.alias, category: params[:category])}</span> } unless opt[:not_city]
     out.html_safe
   end

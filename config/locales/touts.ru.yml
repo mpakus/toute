@@ -7,6 +7,7 @@ ru:
     edit: 'Редактировать'
     finish: 'Закрыть'
     created: 'Объявление успешно создано'
+    create_comment: Оставить комментарий
   activerecord:
     attributes:
       tout:

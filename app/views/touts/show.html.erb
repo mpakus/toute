@@ -24,4 +24,62 @@
     <%= simple_format @tout.content %>
   </div>
 </div>
+<hr/>
+<div class="row">
+  <div class="col-lg-10 col-md-offset-1">
+    <div class="panel panel-default widget">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= t('comments.title') %></h3>
+      </div>
+      <div class="panel-body">
+        <a name="comments"></a>
+        <ul class="list-group">
+          <% @tout.comments.each do |comment| %>
+            <li class="list-group-item">
+              <div class="row">
+                <a name="comment<%= comment.id %>"></a>
+                <div class="col-xs-2 col-md-1">
+                  <%= image_tag comment.user.photo, class: "img-circle img-responsive" if comment.user.photo %>
+                </div>
+                <div class="col-xs-10 col-md-11">
+                  <div>
+                    <div class="mic-info">
+                      <%= t('from') %>: <strong><%= comment.user.name %></strong> <%= human_date(comment.created_at) %>
+                    </div>
+                  </div>
+                  <div class="comment-text">
+                    <p><%= simple_format(comment.content) %></p>
+                  </div>
+                  <% only_for_owner @tout do %>
+                    <div class="action">
+                      <%= button_to tout_comment_path(@tout.id, comment.id), {method: :delete, remote: true, data: {confirm: t('comments.delete_confirm')}, class: "btn btn-danger btn-xs", form_class: 'delete-comment', title: t('comments.delete')} do %>
+                        <span class="glyphicon glyphicon-trash"></span> <%= t('comments.delete') %>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </li>
+          <% end if @tout.comments %>
+        </ul>
+      </div>
+    </div>
+
+    <% if user_signed_in? %>
+      <h3><%= t('comments.create_title') %></h3>
+      <%= form_for([@tout, @comment]) do |f| %>
+        <%= form_errors(@comment) %>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control', rows: 6 %>
+        </div>
+        <div class="form-group">
+          <%= f.submit t('touts.create_comment'), class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    <% else %>
+      <%= t('comments.before_create_login') %> <button class="btn btn-primary" data-toggle="modal" data-target="#login_modal"><%= t('menu.authorize') %></button>
+    <% end %>
+  </div>
+
+</div>
 

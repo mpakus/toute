@@ -1,0 +1,10 @@
+ru:
+  comments:
+    created: Ваш комментарий добавлен
+    destroyed: Комментарий удален
+    access_denied: У вас нет прав
+    create_title: Оставить комментарий
+    title: Комментарии
+    before_create_login: Чтобы оставить комментарий
+    delete_confirm: Вы уверены, что хотите удалить этот комментарий?
+    delete: Удалить

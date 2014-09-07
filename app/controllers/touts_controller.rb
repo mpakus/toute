@@ -9,6 +9,7 @@ class ToutsController < ApplicationController
   # GET /touts/1
   # GET /touts/1.json
   def show
+    @comment = Comment.new
   end
 
   # GET /touts/new

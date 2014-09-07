@@ -6,6 +6,8 @@ ru:
     close: 'Закрыть'
   msg:
     are_u_sure: 'Вы уверены?'
+  errors:
+    sign_in_first: Вам надо войти сперва под своим профилем
   menu:
     operations: 'Раздел'
     city: 'Город'
@@ -13,6 +15,7 @@ ru:
     authorize: 'Войти через соц. сети'
   form:
     search: 'найти'
+  from: от
 
 # kaminari
   views:
