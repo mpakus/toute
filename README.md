@@ -28,6 +28,9 @@ Execute this:
 Versions
 ====
 
+0.6
+- updated to stable Rails 4.2
+
 0.5
 - Comments, now user can leave it and owner of toute to delete them
 - updated to stable Rails 4.1.5
